@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "motion/react";
 import { Trophy, Calendar, MapPin, ChevronRight } from "lucide-react";
 
-export const Route = createFileRoute("/tournaments")({
+export const Route = createFileRoute("/tournaments/")({
   head: () => ({
     meta: [
       { title: "Tournaments — NEONCLASH" },
