@@ -156,6 +156,7 @@ function LiveTicker() {
 
 const tournaments = [
   {
+    slug: "crimson-cup",
     title: "Crimson Cup",
     tag: "FPS · 5v5",
     prize: "$3.2M",
@@ -165,6 +166,7 @@ const tournaments = [
     color: "var(--color-neon-red)",
   },
   {
+    slug: "neon-rift",
     title: "Neon Rift",
     tag: "MOBA · Global",
     prize: "$5.0M",
@@ -174,6 +176,7 @@ const tournaments = [
     color: "var(--color-neon-pink)",
   },
   {
+    slug: "blue-circuit",
     title: "Blue Circuit",
     tag: "Racing · Solo",
     prize: "$1.8M",
@@ -211,6 +214,7 @@ function Tournaments() {
               whileHover={{ y: -8 }}
               className="group relative overflow-hidden border border-white/10 bg-black/40 backdrop-blur-xl"
             >
+              <Link to="/tournaments/$slug" params={{ slug: t.slug }} className="absolute inset-0 z-10" aria-label={`View ${t.title}`} />
               <div className={`relative h-56 overflow-hidden bg-gradient-to-br ${t.tint}`}>
                 <div className="absolute inset-0 bg-grid opacity-30" />
                 <div className="absolute inset-0 flex items-center justify-center">
@@ -230,9 +234,9 @@ function Tournaments() {
                     <div className="text-[13px] uppercase tracking-widest text-muted-foreground">Prize</div>
                     <div className="font-display text-2xl font-black text-white">{t.prize}</div>
                   </div>
-                  <button className="border border-white/20 px-4 py-2 text-[13px] font-black uppercase tracking-[0.3em] text-white transition group-hover:border-transparent group-hover:bg-white group-hover:text-black">
-                    Enter
-                  </button>
+                  <Link to="/tournaments/$slug" params={{ slug: t.slug }} className="relative z-20 border border-white/20 px-4 py-2 text-[13px] font-black uppercase tracking-[0.3em] text-white transition group-hover:border-transparent group-hover:bg-white group-hover:text-black">
+                    Enter <ChevronRight className="inline h-3 w-3" />
+                  </Link>
                 </div>
               </div>
             </motion.article>
